@@ -13,8 +13,9 @@ export const counterSlice = createSlice({
       state.TotalPrice= state.TotalPrice+data.payload.price
     },
     removeCart: (state, action)=>{
-       const itemId= (action.payload);
+       const itemId= (action.payload.id);
        state.data= state.data.filter((items)=> items.id!==itemId)
+       state.TotalPrice= state.TotalPrice-(action.payload.price*action.payload.quantity)
     },
     incrementQuantity: (state, action)=>{
       state.data[action.payload].quantity+=1

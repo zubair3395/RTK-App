@@ -69,7 +69,7 @@ function AddItem() {
               <p className="card-text">{element.price}</p>
               <div className="row">
                 <div className="col-md-4">
-                <button className="btn btn-primary" onClick={()=>handleDelete(element.id)}>Delete</button>
+                <button className="btn btn-primary" onClick={()=>handleDelete(element)}>Delete</button>
                 </div>
                 <div className="col-md-8">
                   <button className='btn btn-secondary rounded-circle mx-2' onClick={()=>handleDecrement(index)}>-</button>
