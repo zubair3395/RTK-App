@@ -26,10 +26,14 @@ export const counterSlice = createSlice({
       state.data[action.payload].quantity-=1
         state.TotalPrice= state.TotalPrice-state.data[action.payload].price
     }
+    },
+    checkout: (state)=>{
+      state.data= [];
+      state.TotalPrice=0;
     }
   },
 })
 
-export const { AddToCart, removeCart, incrementQuantity, decrementQuantity } = counterSlice.actions
+export const { AddToCart, removeCart, incrementQuantity, decrementQuantity, checkout } = counterSlice.actions
 
 export default counterSlice.reducer

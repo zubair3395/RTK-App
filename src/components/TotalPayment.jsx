@@ -1,12 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { checkout } from '../Features/countSlice'
 export default function TotalPayment() {
   const sub_total = useSelector((state)=> state.ShoppingStore.TotalPrice)
+  const dispatch = useDispatch();
   const taxes= sub_total/90*10
   const total = sub_total+taxes;
   const handleCheckOut= ()=>{
     if(sub_total>0){
+      dispatch(checkout())
       alert("Your order Sucessfull")
     }
     else{

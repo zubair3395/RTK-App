@@ -72,7 +72,7 @@ function AddItem() {
                 <button className="btn btn-primary" onClick={()=>handleDelete(element)}>Delete</button>
                 </div>
                 <div className="col-md-8">
-                  <button className='btn btn-secondary rounded-circle mx-2' onClick={()=>handleDecrement(index)}>-</button>
+                  <button disabled={element.quantity<1} className='btn btn-secondary rounded-circle mx-2' onClick={()=>handleDecrement(index)}>-</button>
                   <span>{element.quantity}</span>
                   <button className='btn btn-secondary rounded-circle mx-2' onClick={()=> handleIncrement(index)}>+</button>
                 </div>
