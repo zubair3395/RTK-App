@@ -66,7 +66,7 @@ function AddItem() {
             <img src={element.image} className="card-img-top" alt="..." style={{height:"15rem", width:"18rem"}}/>
             <div className="card-body">
               <h5 className="card-title">{element.category}</h5>
-              <p className="card-text">{element.price}</p>
+              <p className="card-text">Price {element.price}</p>
               <div className="row">
                 <div className="col-md-4">
                 <button className="btn btn-primary" onClick={()=>handleDelete(element)}>Delete</button>

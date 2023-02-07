@@ -4,9 +4,11 @@ import { useState } from 'react'
 import Navbar from './Navbar';
 import { AddToCart} from '../Features/countSlice';
 import { useDispatch} from 'react-redux';
+import { useSelector } from 'react-redux';
 function ShoppingCart() {
     const[ collection, setCollection] = useState([]);
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
+    const count = useSelector(state=> state.ShoppingStore.data)
     useEffect(()=>{
         fetch(" http://localhost:3004/Collection").then((response)=> response.json())
         .then((data)=> setCollection(data));
@@ -14,7 +16,7 @@ function ShoppingCart() {
     const dispatch= useDispatch();
   return (
     <>
-    <Navbar count={count}/>
+    <Navbar count={count.length}/>
    
     <div className='container'>
       <h1 className='my-5'> Shopping Cart Items</h1>
@@ -26,10 +28,8 @@ function ShoppingCart() {
               <img src={element.image} className="card-img-top" alt="..." style={{height:"15rem", width:"18rem"}}/>
               <div className="card-body">
                 <h5 className="card-title">{element.category}</h5>
-                <p className="card-text">{element.price}</p>
-                <button className="btn btn-primary" onClick={()=> {
-                    dispatch(AddToCart(element)) 
-                    setCount(count+1)}}>Add to Cart</button>
+                <p className="card-text">Price {element.price}</p>
+                <button className="btn btn-primary" onClick={()=>dispatch(AddToCart(element))}>Add to Cart</button>
               </div>
             </div>
             </div>

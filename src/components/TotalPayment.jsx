@@ -4,7 +4,7 @@ import { checkout } from '../Features/countSlice'
 export default function TotalPayment() {
   const sub_total = useSelector((state)=> state.ShoppingStore.TotalPrice)
   const dispatch = useDispatch();
-  const taxes= sub_total/90*10
+  const taxes= sub_total/100*10
   const total = sub_total+taxes;
   const handleCheckOut= ()=>{
     if(sub_total>0){

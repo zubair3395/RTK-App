@@ -9,8 +9,11 @@ export const counterSlice = createSlice({
   },
   reducers: {
     AddToCart: (state, data) => {
-      state.data= [...state.data, data.payload]
-      state.TotalPrice= state.TotalPrice+data.payload.price
+      const res= state.data.find(post => post.id === data.payload.id)
+      if(!res){
+        state.data= [...state.data, data.payload]
+        state.TotalPrice= state.TotalPrice+data.payload.price
+      } 
     },
     removeCart: (state, action)=>{
        const itemId= (action.payload.id);
