@@ -6,7 +6,7 @@ import { incrementQuantity, removeCart, decrementQuantity } from '../Features/co
 import TotalPayment from './TotalPayment'
 
 function AddItem() {
-  const CartItem = useSelector((state) => state.ShoppingStore.data)
+  const cartItem = useSelector((state) => state.ShoppingStore.data)
   const dispatch = useDispatch();
   const handleDelete = (element)=>{
     dispatch(removeCart(element))
@@ -22,7 +22,7 @@ function AddItem() {
     <div>
       <nav className="navbar navbar-expand-lg bg-light shadow">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/">CartItem</a>
+    <a className="navbar-brand" href="/">cartItem</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -60,7 +60,7 @@ function AddItem() {
         <div className="col-md-8 position-relative">
         <h1>You Have Add these Items</h1>
       <div className="row">
-          { CartItem ?  CartItem.map((element, index)=>
+          { cartItem ?  cartItem.map((element, index)=>
             <div className="col-md-6 my-3" key={index}>
             <div className="card" style={{width: "18rem"}}>
             <img src={element.image} className="card-img-top" alt="..." style={{height:"15rem", width:"18rem"}}/>
